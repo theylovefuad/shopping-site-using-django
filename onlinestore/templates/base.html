@@ -32,10 +32,11 @@
                         {% if user.is_authenticated %}
 
                         <a href="/accounts/user" class="nav_link"> <i class='bx bx-user nav_icon' title="{{user.get_username}}"></i> <span class="nav_name">{{user.get_username}}</span> </a>
+                        <a href="/cart/" class="nav_link"> <i class='bx bx-cart nav_icon'title="Cart"></i> <span class="nav_name">Cart</span> </a> 
+
                      {% else %}
                         <a href="/accounts/login" class="nav_link"> <i class='bx bx-user nav_icon' title="User"></i> <span class="nav_name">User</span> </a>
                         {%endif %}
-                        <a href="/cart/" class="nav_link"> <i class='bx bx-cart nav_icon'title="Cart"></i> <span class="nav_name">Cart</span> </a> 
                        <a href="#category-header" class="nav_link" > <i class='bx bx-category nav_icon'title="Category"></i> <span class="nav_name">Categories</span> </a>
                         {% if user.is_authenticated %}
                     </div> <a href="/accounts/logout/" class="nav_link"> <i class='bx bx-log-out nav_icon' title="Sign Out"></i> <span class="nav_name">SignOut</span> </a>
