@@ -1,0 +1,25 @@
+{% extends 'base.html'%}
+{% block content %}
+    {% if searched %}
+    <section class="p-5">
+      <form class="d-flex m-auto"method="POST"action="/search/">{% csrf_token %}
+        <input class="form-control me-2" type="search"placeholder="Search"name="searched">
+        <button class="btn btn-search" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+      </form>
+    
+      <div class="row p-5 normal-body m-auto">
+        {% for instance in items %}
+        <div class="col-md-4 col-lg-3 col-sm-6 col-xs-6 d-flex align-items-stretch">
+          <div class="card cardi mr-4 mb-2">
+            <img src="{{instance.image.url}}" class="card-img-top display-image" alt="...">
+            <div class="card-body">
+              <h6 class="card-title detail">{{instance.title}} | <small>{{instance.price}}</small></h6>
+            </div><hr>
+        </div>
+                {% endfor %}
+      {% else %}
+      <h4>You need to type in a product to find</h4>
+      {% endif %}
+  
+    </section>
+{% endblock %}

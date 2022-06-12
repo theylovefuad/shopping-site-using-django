@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block content %}
+<section class="p-5">
+  <span class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navmenu">   
+    <h5 class="category-header">Showing: {{cats}} <i class="bi bi-caret-down-fill"></i></h5>
+  </span>
+  <div class="collapse navbar-collapse"id="navmenu">
+    {% for instance in category_list %}
+    <a href="/category/{{instance.name}}/">{{instance.name}}</b></a><hr>
+    {% endfor %}
+  </div>
+
+  <form class="d-flex m-auto"method="POST"action="/search/">{% csrf_token %}
+    <input class="form-control me-2" type="search"placeholder="Search"name="searched">
+    <button class="btn btn-search" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+  </form>
+  <div class="row p-5 normal-body m-auto">
+    {% for instance in object_list %}
+    <div class="col-md-4 col-lg-3 col-sm-6 col-xs-6 d-flex align-items-stretch">
+      <a href="/product/{{instance.pk}}/" class="card-link detail">
+        <div class="card cardi mr-4 mb-2">
+          <img src="{{instance.image.url}}" class="card-img-top display-image" alt="...">
+          <div class="card-body">
+            <h6 class="card-title detail">{{instance.title}} | <small>{{instance.price}}</small></h6>
+          </div>
+        </div>
+      </a>
+    </div>
+            {% endfor %}
+</section>
+{% endblock %}
+
+

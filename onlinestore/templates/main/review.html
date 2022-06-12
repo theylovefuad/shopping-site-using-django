@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block content %}
+<body>
+    <div class="p-5">
+       <form  method="POST" class="mb-3">
+          {% csrf_token %}
+          <div class="row">
+            <div class="col-sm-11">
+              <input type="text" name="review" class="form-control" placeholder="Enter Your Review">
+            </div>
+            <div class="col-sm-1">
+              <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+          </div>
+        </form>
+          <p><a href="/menu/">Back to Menu</a></p>  
+    </div>
+ 
+{% endblock %}

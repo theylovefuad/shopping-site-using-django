@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="dishes">
+    <!--Main layout-->
+  <main class="pt-4 mb-0 main">
+    <div class="container dark-grey-text">
+      <div class="row wow fadeIn">
+        <div class="col-md-6 mb-4">
+          <img src="{{ object.image.url }}" class="img-fluid mt-4" alt="">
+        </div>
+        <div class="col-md-6 mb-4 information">
+          <!--Content-->
+          <div class="p-4 content">
+            <div class="mt-0">
+                <h2>{{ object.title }}</h2>
+            </div>
+            <div class="lead">
+              {% if item.description %}
+              <h5>{{ object.description }}</h5>
+              {% endif %}
+              <h4>{{ item.instructions }}</h4>
+            </div>
+            <script>
+              function myFunction(){document.getElementById("cart-alert").style.display="block";}
+            </script>
+            <div id="cart-alert" class="alert alert-success mt-1" role="alert" style="display:none">Your Item has been added to cart!!</div>
+           <hr><a href="/product/all/">Menu</a> |  <a href="/cart/">View Cart</a>
+          </div>
+        </div>
+      </div>
+      <hr>
+    </div>
+  </main>
+  <div class="reviews content">
+    <div class="container">
+      <h3 class="text-center">Reviews (<a href="review">Add a review</a>)</h3>
+      {% for instance in review %}
+      <div>
+        <p>{{instance.review}} - <b>by {{instance.user}}</b></p><hr>
+      </div>
+      {% endfor %}
+   
+    </div>
+    <a href="delete">Delete Item</a>
+  
+  </div>
+</div>
+{% endblock %}
+
+
+
+

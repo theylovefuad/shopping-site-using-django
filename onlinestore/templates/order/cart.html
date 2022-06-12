@@ -1,0 +1,86 @@
+{% extends "base.html" %}
+{% block content %}
+{% if object_list %}
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Oswald">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open Sans">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+<link rel="stylesheet" type="text/css" href="{% static 'css/main2.css' %}">
+</head>
+<body class="w3-light-grey">
+<!-- Navigation bar with social media icons -->
+  
+<!-- w3-content defines a container for fixed size centered content, 
+and is wrapped around the whole page content, except for the footer in this example -->
+<div class="w3-content content">
+
+  <!-- Header -->
+  <header class="w3-container w3-center w3-padding-48" id="header">
+    <h1 class="w3-xxxlarge invitation-text"><b>MAVE NG</b></h1>
+    <h6 class="invitation-text">Just a Maverick Store</h6>
+  </header>
+
+<div class="cart">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-9 mt-5">
+                <h3 class="text-center">Your Cart</h3>
+                <div class="table-responsive">
+                    <table class="table table-light">
+                        <thead>
+                        <tr>
+                            <th scope="col">Product</th>
+                            <th scope="col">Price</th>
+                            <th scope="col">Quantity</th>
+                            <th scope="col">Pre-Total</th>
+                            <th scope="col"></th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                            {% for instance in object_list %}
+                            <tr>
+                            <td>{{ instance.title }} </td>
+                            <td>{{ instance.price }}</td>
+                            <td>{{ instance.quantity }}</td>
+                            <td>{{ instance.total_value|floatformat:2}}</td>
+                            <td><a class="btn btn-danger" href="delete_order/{{instance.id}}">Delete</a></td>
+                        </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="col-lg-3 mt-5 mb-3">
+                <div class="content-section">
+                    <h3 class="text-center">Order Summary</h3>
+                      <ul class="list-group">
+                        <li class="list-group-item list-group-item-light text-center text-dark">Total: <strong>${{total |floatformat:2}}</strong> </li>
+                        <li class="list-group-item list-group-item-light text-center text-dark">Total Pieces: <strong>{{total_pieces}}</strong></li>
+                        <li class="list-group-item list-group-item-light text-center text-dark"><a class="btn btn-primary" href="order_item">Proceed To Checkout</a></li>
+                        <li class="list-group-item list-group-item-light text-center"><a class="btn btn-success" href="/product/all/">Continue Buying</a></li>
+                        <li class="list-group-item list-group-item-light text-center"><a class="btn btn-danger" href="clear">Empty Cart</a></li>
+                      </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% else %}
+    <h4 class="text-center mt-3"style="font-family:'Macondo',cursive;">Sorry, Your Cart is Empty....Please add Items!!!</h4>
+    {% endif %}
+
+</div>
+<script>
+    function calc(){
+        var textValue1 = document.getElementById('price').value;
+        var textValue2 = document.getElementById('quantity').value;
+
+        document.getElementById('pretotal').value = textValue1 * textValue2;
+    }
+</script>
+{% endblock content %}

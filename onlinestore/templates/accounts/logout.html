@@ -1,0 +1,18 @@
+{% extends 'secondbase.html' %}
+{% block content %}
+{% if user.is_authenticated %}
+<div class="row">
+    <div class="col"></div>
+    <div class="col pt-5 text-center">
+        <form method="POST">{% csrf_token %}
+            <p>Are you sure you want to logout?</p>
+            <button type="submit" class="btn btn-danger">Yes, logout</button>
+        
+        </form>
+        {% else %}
+        <div class="alert alert-success">You are logged out. Would you like to <a href="/accounts/login/">login</a> or <a href="/">return to home</a>?</div>
+        {% endif %}        
+    </div>
+    <div class="col"></div>
+</div>
+{% endblock %}

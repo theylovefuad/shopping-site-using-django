@@ -1,0 +1,91 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300&display=swap" rel="stylesheet">
+        <link rel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+        <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+        <title>Mave Online NG</title>
+    </head>
+    <body id="body-pd">
+        <header class="headerr header mb-1" id="header">
+            <div class="header_toggle"> <i class='bx bx-menu' id="header-toggle"></i> </div>
+            <div class=""> <p>{{request.user.get_username}}</p> </div>
+        </header>
+        <div class="l-navbar" id="nav-bar">
+            <nav class="nav">
+                <div> <a href="/" class="nav_logo"> <i class='bx bx-layer nav_logo-icon'></i> <span class="nav_logo-name" style="font-family:'Poppins', sans-serif; font-size:150%;">Mave NG</span> </a>
+                    <div class="nav_list"> <a href="/product/all" class="nav_link active"> <i class='bx bx-grid-alt nav_icon' title="Shop"></i> <span class="nav_name">Shop</span> </a> 
+                        {% if user.is_authenticated %}
+
+                        <a href="/accounts/user" class="nav_link"> <i class='bx bx-user nav_icon' title="{{user.get_username}}"></i> <span class="nav_name">{{user.get_username}}</span> </a>
+                     {% else %}
+                        <a href="/accounts/login" class="nav_link"> <i class='bx bx-user nav_icon' title="User"></i> <span class="nav_name">User</span> </a>
+                        {%endif %}
+                        <a href="/cart/" class="nav_link"> <i class='bx bx-cart nav_icon'title="Cart"></i> <span class="nav_name">Cart</span> </a> 
+                       <a href="#category-header" class="nav_link" > <i class='bx bx-category nav_icon'title="Category"></i> <span class="nav_name">Categories</span> </a>
+                        {% if user.is_authenticated %}
+                    </div> <a href="/accounts/logout/" class="nav_link"> <i class='bx bx-log-out nav_icon' title="Sign Out"></i> <span class="nav_name">SignOut</span> </a>
+                    {% else %}
+                    </div> <a href="/accounts/login/" class="nav_link"> <i class='bx bx-log-in nav_icon'title="Sign In"></i> <span class="nav_name">Sign In</span> </a>
+                    {% endif %}
+            </nav>
+        </div>
+        </body>
+        <!--Container Main start-->
+<script>document.addEventListener("DOMContentLoaded", function(event) {
+   
+    const showNavbar = (toggleId, navId, bodyId, headerId) =>{
+    const toggle = document.getElementById(toggleId),
+    nav = document.getElementById(navId),
+    bodypd = document.getElementById(bodyId),
+    headerpd = document.getElementById(headerId)
+    
+    // Validate that all variables exist
+    if(toggle && nav && bodypd && headerpd){
+    toggle.addEventListener('click', ()=>{
+    // show navbar
+    nav.classList.toggle('show')
+    // change icon
+    toggle.classList.toggle('bx-x')
+    // add padding to body
+    bodypd.classList.toggle('body-pd')
+    // add padding to header
+    headerpd.classList.toggle('body-pd')
+    })
+    }
+    }
+    
+    showNavbar('header-toggle','nav-bar','body-pd','header')
+    
+    /*===== LINK ACTIVE =====*/
+    const linkColor = document.querySelectorAll('.nav_link')
+    
+    function colorLink(){
+    if(linkColor){
+    linkColor.forEach(l=> l.classList.remove('active'))
+    this.classList.add('active')
+    }
+    }
+    linkColor.forEach(l=> l.addEventListener('click', colorLink))
+    
+     // Your code to run since DOM is loaded and ready
+    });</script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<script src="https://cdn.usebootstrap.com/bootstrap/5.0.1/js/bootstrap.bundle.min.js"></script>
+{% block content %}{% endblock %}

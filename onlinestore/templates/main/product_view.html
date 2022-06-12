@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<section class="pt-5">
+  <span class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navmenu">   
+    <h5 class="category-header" id="category-header">Showing: All Categories <i class="bi bi-caret-down-fill"></i></h5>
+  </span>
+  <div class="collapse navbar-collapse"id="navmenu">
+  {% for instance in category_list %}
+  <div>
+    <a href="/category/{{instance.name}}/">{{instance.name}}</b></a><hr>
+  </div>
+  
+ {% endfor %}
+ </div>
+
+  <form class="d-flex m-auto"method="POST"action="/search/">{% csrf_token %}
+    <input class="form-control me-2" type="search"placeholder="Search"name="searched">
+    <button class="btn btn-search" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+  </form>
+  </section>
+<section class="pt-2">
+    <div class="open">
+      <img src="{% static 'images/mike.jpg' %}" class="weopen">
+    </div>
+</section>
+<div class=" p-3">
+  <h3 class="text-center">ORDER AT ONCE AND GET</h3>
+  <div class="row">
+    <div class="col discounts">5% off <br> when you make 3 orders</div>
+    <div class="col discounts">10% off <br> when you make 5 orders </div>
+    <div class="col discounts">15% off <br> when you make 7 orders</div>
+    <div class="col discounts">20% off <br> when you make 10 orders</div>
+  </div>
+  
+</div>
+  <body>
+    <h2>TOP SALES</h2>
+    <div class="row pt-3 normal-body m-auto">
+      {% for instance in object_list %}
+      <div class="col-lg-3 col-xl-2 col-xs-6 col-md-4  d- align-items-stretch align-items-stretchh">
+        <a href="/product/{{instance.pk}}/" class="card-link detail">
+          <div class="card cardi mr-1 mb-2">
+            <img src="{{instance.image.url}}" class="card-img-top display-image" alt="...">
+            <div class="card-body">
+              <h6 class="card-title detail">{{instance.title}}<br><small>{{instance.price}}</small></h6>
+            </div>
+          </div>
+        </a>
+      </div>
+    {% endfor %}
+  
+  
+  
+  </div>
+  
+  
+  </body>
+  
+{% endblock %}

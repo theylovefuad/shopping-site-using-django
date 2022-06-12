@@ -1,0 +1,110 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap");:root{--header-height: 3.5rem;--nav-width: 68px;--first-color: #4723D9;--first-color-light: #AFA5D9;--white-color: #F7F6FB;--body-font: 'Nunito', sans-serif;--normal-font-size: 1rem;--z-fixed: 100}*,::before,::after{box-sizing: border-box}body{position: relative;margin: var(--header-height) 0 0 0;padding: 0 1rem;font-family: var(--body-font);font-size: var(--normal-font-size);transition: .5s}a{text-decoration: none}.header{width: 100%;height: var(--header-height);position: fixed;top: 0;left: 0;display: flex;align-items: center;justify-content: space-between;padding: 0 1rem;background-color: var(--white-color);z-index: var(--z-fixed);transition: .5s}.header_toggle{color: var(--first-color);font-size: 1.5rem;cursor: pointer}.header_img{width: 35px;height: 35px;display: flex;justify-content: center;border-radius: 50%;overflow: hidden}.header_img img{width: 40px}.l-navbar{position: fixed;top: 0;left: -30%;width: var(--nav-width);height: 100vh;background-color: var(--first-color);padding: .5rem 1rem 0 0;transition: .5s;z-index: var(--z-fixed)}.nav{height: 100%;display: flex;flex-direction: column;justify-content: space-between;overflow: hidden}.nav_logo, .nav_link{display: grid;grid-template-columns: max-content max-content;align-items: center;column-gap: 1rem;padding: .5rem 0 .5rem 1.5rem}.nav_logo{margin-bottom: 2rem}.nav_logo-icon{font-size: 1.25rem;color: var(--white-color)}.nav_logo-name{color: var(--white-color);font-weight: 700}.nav_link{position: relative;color: var(--first-color-light);margin-bottom: 1.5rem;transition: .3s}.nav_link:hover{color: var(--white-color)}.nav_icon{font-size: 1.25rem}.show{left: 0}.body-pd{padding-left: calc(var(--nav-width) + 1rem)}.active{color: var(--white-color)}.active::before{content: '';position: absolute;left: 0;width: 2px;height: 32px;background-color: var(--white-color)}.height-100{height:100vh}@media screen and (min-width: 768px){body{margin: calc(var(--header-height) + 1rem) 0 0 0;padding-left: calc(var(--nav-width) + 2rem)}.header{height: calc(var(--header-height) + 1rem);padding: 0 2rem 0 calc(var(--nav-width) + 2rem)}.header_img{width: 40px;height: 40px}.header_img img{width: 45px}.l-navbar{left: 0;padding: 1rem 1rem 0 0}.show{width: calc(var(--nav-width) + 156px)}.body-pd{padding-left: calc(var(--nav-width) + 188px)}}
+.header-logo{font-family: 'Poppins', sans-serif;color: white}
+/* .headerr{background: rgb(71,35,217);
+    background: linear-gradient(121deg, rgba(71,35,217,0.29175420168067223) 19%, rgba(0,212,255,1) 100%);} */
+.detail-image{max-height: 200px;}
+#carousel{max-height: 200px;}
+.information{background: rgb(90,124,231);
+    background: linear-gradient(16deg, rgba(90,124,231,1) 19%, rgba(71,35,217,1) 100%);border-radius: 30px 0px 0px 30px;
+color: white;}
+.quantityspan{width:20px}
+h5{font-family: 'Poppins',sans-serif;}
+.display-image{height:200px;width:200px;object-fit: none;object-position: 50% 50%;}
+#description{border-right: 1px solid rgb(71,35,217);}
+h2, h3, th, h6{font-family: 'Poppins';}
+.asklogin{color: black; font-family: 'Poppins',sans-serif;}
+.open-button {
+    background-color: #555;
+    color: white;
+    padding: 16px 20px;
+    border: none;
+    cursor: pointer;
+    opacity: 0.8;
+    width: 280px;
+  }
+  
+  /* The popup form - hidden by default */
+  .form-popup {
+    position: fixed;
+    bottom: 0px;
+    right:0px;
+    border: 3px solid #f1f1f1;
+    z-index: 9;
+    width:500px;
+    transition: 0.5s;
+    -webkit-box-shadow: inset 0px 0px 400px rgb(58, 57, 57);
+    box-shadow: inset 0px 0px 400px rgb(58, 57, 57);
+  }
+  
+  /* Add styles to the form container */
+  .form-container {
+    padding: 10px;
+    background-color: white;
+  }
+  
+  /* Full-width input fields */
+  .form-container input[type=text], .form-container input[type=password] {
+    width: 100%;
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    border: none;
+    background: #f1f1f1;
+  }
+  
+  /* When the inputs get focus, do something */
+  .form-container input[type=text]:focus, .form-container input[type=password]:focus {
+    background-color: #ddd;
+    outline: none;
+  }
+  
+  /* Set a style for the submit/login button */
+  .form-container .btn {
+    background-color: rgb(71,35,217);
+    color: white;
+    padding: 16px 20px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    margin-bottom:10px;
+    opacity: 0.8;
+  }
+  
+  /* Add a red background color to the cancel button */
+  .form-container .cancel {
+    background-color: grey;
+  }
+  
+  /* Add some hover effects to buttons */
+  .form-container .btn:hover, .open-button:hover {
+    opacity: 1;
+  }
+  #cover{
+    position: fixed;
+    top:0;
+    left:0;
+    background:rgba(0, 0, 0, 0.6);
+    z-index:5;
+    width:100%;
+    height:100%;
+    display: none;
+  }
+.category-header{color: #4723D9;}
+.align-items-stretchh a:link {color:black;}
+.card-body{color:black;}
+.align-items-stretchh{width: 200px;}
+.weopen{object-fit: cover;max-height: 500px;display:block;margin: auto;}
+.open{background-color: #AFA5D9;}
+.discounts{font-family: 'Poppins';border-right: 1px solid rgb(71,35,217);}
+.navbar-brand{font-family: 'Poppins';}
+.nav-link{color:black}
+.cardi{border: 1px solid white;}
+.horizontal-scrollable > .row {
+  overflow-x: auto;
+  white-space: nowrap;
+}
+
+.horizontal-scrollable > .row > .col-2 {
+  display: inline-block;
+  float: none;
+}
+@media (max-width:996px){.weopen{width: 100%;height: auto;}}

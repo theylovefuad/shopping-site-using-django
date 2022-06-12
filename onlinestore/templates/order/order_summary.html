@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="cart" style="background-color:#f3b184;">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 mt-5">
+                <h2 class="text-center">Active Orders</h2>
+                {% if object_list %}
+                <h6 class="text-center">Please Pay Either via ATM or Credit Card or Cash on Delivery!</h6>
+                <div class="table-responsive">
+                    <table class="table"style="background-color:#f3f3f3;">
+                        <thead>
+                        <tr>
+                            <th scope="col">Ordered</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Price</th>
+                            <th scope="col">Total </th>
+                            <th scope="col">Order Status</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                            {% for instance in object_list %}
+                        <tr>
+                            <td>{{ instance.ordered_date }}</td>
+                            <td>{{ instance.title }} 
+                            <td>{{ instance.price}}</td>
+                            <td>{{ instance.quantity }} </td>
+                            <td>{{ instance.status }}</td>
+                        </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+                {% else %}
+                <h4 class="text-center">Sorry, you have not ordered any item yet!!!</h4>
+                {% endif %}
+            </div>
+        </div>
+
+</div>
+<div class="p-5">
+    <h1>COMPLETED ORDERS</h1>
+    {% for instance in cart_items %}
+    <table class="table"style="background-color:#f3f3f3;">
+        <thead>
+        <tr>
+            <th scope="col">Ordered</th>
+            <th scope="col">Name</th>
+            <th scope="col">Price</th>
+            <th scope="col">Total </th>
+            <th scope="col">Order Status</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>{{ instance.ordered_date }}</td>
+            <td>{{ instance.title }} 
+            <td>{{ instance.price}}</td>
+            <td>{{ instance.quantity }} </td>
+            <td>{{ instance.status }}</td>
+        </tr>
+    {% endfor %}
+        </tbody>
+    </table>
+
+</div>
+{% endblock content %}

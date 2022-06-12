@@ -1,0 +1,17 @@
+.invitation-text{color: rgb(90,124,231);}
+.shopbtn{background-color: rgb(90,124,231);}
+.image3text{background-color: rgb(90,124,231);}
+h1,h2,h3,h4,h5,h6 {font-family: "Oswald"}
+.content{max-width:1600px}
+.homeimg{width:100%}
+#body{background: linear-gradient(0deg, rgba(241,241,241, 0.6), rgba(241,241,241, 0.6)),url('../images/image2.jpg');
+    background-size: cover;overflow-y:visible;}
+label, p{font-family: 'Poppins';}
+.btt{display: none;}
+@media (max-width:996px) {.backtotop{display: none;}.btt{display: block;}}
+.zoom{transition: transform .2s;}
+.zoom:hover{-ms-transform: scale(1.1); 
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1); 
+  }
+
